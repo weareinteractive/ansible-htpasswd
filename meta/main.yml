@@ -3,7 +3,7 @@ galaxy_info:
   author: franklin
   company: We Are Interactive
   description: Installs htpasswd and creates auth files
-  min_ansible_version: 1.6
+  min_ansible_version: 1.4
   license: MIT
   platforms:
     - name: Ubuntu
