@@ -1,0 +1,38 @@
+---
+
+- name: Removing htpasswd folder
+  file: >
+    dest=/etc/htpasswd
+    state=absent
+  tags:
+    - web
+    - apache2
+    - htpasswd
+
+- name: Creating htpasswd folder
+  file: >
+    dest=/etc/htpasswd
+    state=directory
+    owner=root
+    group=root
+    mode=0755
+  tags:
+    - web
+    - apache2
+    - htpasswd
+
+- name: Adding htpasswd files
+  htpasswd: >
+    path=/etc/htpasswd/{{ item.0.name }}
+    name={{ item.1.name }}
+    password={{ item.1.password }}
+    owner=root
+    group=root
+    mode=0644
+  with_subelements:
+    - htpasswd
+    - users
+  tags:
+    - web
+    - apache2
+    - htpasswd
