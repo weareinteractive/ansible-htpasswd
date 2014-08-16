@@ -1,7 +1,7 @@
 # Ansible Htpasswd Role
 
-[![Build Status](https://travis-ci.org/weareinteractive/ansible-role-htpasswd.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-role-htpasswd)
-[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-role-htpasswd.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-role-htpasswd)
+[![Build Status](https://travis-ci.org/weareinteractive/ansible-htpasswd.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-htpasswd)
+[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-htpasswd.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-htpasswd)
 
 > `htpasswd` is an [ansible](http://www.ansible.com) role which: 
 > 
@@ -25,7 +25,7 @@ $ arm install franklinkim.htpasswd
 Using `git`:
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-role-htpasswd.git
+$ git clone https://github.com/weareinteractive/ansible-htpasswd.git
 ```
 
 ## Variables
@@ -55,8 +55,8 @@ htpasswd: []
 ## Testing
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-role-htpasswd.git
-$ cd ansible-role-htpasswd
+$ git clone https://github.com/weareinteractive/ansible-htpasswd.git
+$ cd ansible-htpasswd
 $ vagrant up
 ```
 
