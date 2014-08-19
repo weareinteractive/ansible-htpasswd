@@ -1,5 +1,4 @@
 ---
 
 - include: install.yml
-- include: create.yml
-
+- include: manage.yml

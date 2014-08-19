@@ -5,6 +5,8 @@
 # htpasswd:
 #   - name: myapp
 #     users:
-#       - { name: user, password: secret }
+#       - { name: user1, password: secret1 }
+#       - { name: user1, password: secret2, crypt: [apr_md5_crypt | des_crypt | ldap_sha1 | plaintext] }
 
+# list of entries
 htpasswd: []

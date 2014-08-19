@@ -30,12 +30,16 @@ $ git clone https://github.com/weareinteractive/ansible-htpasswd.git
 
 ## Variables
 
+Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
+
 ```
 # htpasswd:
 #   - name: myapp
 #     users:
-#       - { name: user, password: secret }
+#       - { name: user1, password: secret1 }
+#       - { name: user1, password: secret2, crypt: [apr_md5_crypt | des_crypt | ldap_sha1 | plaintext] }
 
+# list of entries
 htpasswd: []
 ```
 

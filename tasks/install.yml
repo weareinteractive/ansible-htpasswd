@@ -3,11 +3,22 @@
 - name: Installing packages
   apt: >
     pkg={{ item }}
-    state=latest
+    state=present
   with_items:
     - python-passlib
-    - apache2-utils
   tags:
     - web
-    - apache2
     - htpasswd
+    - install
+
+- name: Creating htpasswd folder
+  file: >
+    dest=/etc/htpasswd
+    state=directory
+    owner=root
+    group=root
+    mode=0755
+  tags:
+    - web
+    - htpasswd
+    - install
