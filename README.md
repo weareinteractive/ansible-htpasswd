@@ -1,10 +1,12 @@
 # Ansible Htpasswd Role
 
-[![Build Status](https://travis-ci.org/weareinteractive/ansible-htpasswd.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-htpasswd)
-[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-htpasswd.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-htpasswd)
+[![Build Status](https://img.shields.io/travis/weareinteractive/ansible-htpasswd.svg)](https://travis-ci.org/weareinteractive/ansible-htpasswd)
+[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.htpasswd-blue.svg)](https://galaxy.ansible.com/list#/roles/1372)
+[![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-htpasswd.svg)](https://github.com/weareinteractive/ansible-htpasswd)
+[![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-htpasswd.svg)](https://github.com/weareinteractive/ansible-htpasswd)
 
-> `htpasswd` is an [ansible](http://www.ansible.com) role which: 
-> 
+> `htpasswd` is an [ansible](http://www.ansible.com) role which:
+>
 > * installs `htpasswd`
 > * manages `htpasswd` files
 
@@ -16,17 +18,21 @@ Using `ansible-galaxy`:
 $ ansible-galaxy install franklinkim.htpasswd
 ```
 
-Using `arm` ([Ansible Role Manager](https://github.com/mirskytech/ansible-role-manager/)):
+Using `requirements.yml`:
 
 ```
-$ arm install franklinkim.htpasswd
+- src: franklinkim.htpasswd
 ```
 
 Using `git`:
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-htpasswd.git
+$ git clone https://github.com/weareinteractive/ansible-htpasswd.git franklinkim.htpasswd
 ```
+
+## Dependencies
+
+* Ansible >= 1.9
 
 ## Variables
 
@@ -41,13 +47,16 @@ Here is a list of all the default variables for this role, which are also availa
 
 # list of entries
 htpasswd: []
+# path to auth files
+htpasswd_path: /etc/htpasswd
 ```
 
 ## Example playbook
 
 ```
 - host: all
-  roles: 
+  sudo: yes
+  roles:
     - franklinkim.htpasswd
   vars:
     htpasswd:
