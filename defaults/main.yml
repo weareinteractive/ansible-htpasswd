@@ -10,3 +10,5 @@
 
 # list of entries
 htpasswd: []
+# path to auth files
+htpasswd_path: /etc/htpasswd
