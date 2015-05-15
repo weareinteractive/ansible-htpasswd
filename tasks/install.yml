@@ -6,6 +6,7 @@
     state: present
   with_items:
     - python-passlib
+    - apache2-utils
 
 - name: Creating htpasswd folder
   file:
@@ -13,4 +14,4 @@
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"
