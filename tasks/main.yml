@@ -4,10 +4,12 @@
   tags:
     - web
     - htpasswd
+    - install
     - htpasswd-install
 
 - include: manage.yml
   tags:
     - web
     - htpasswd
+    - manage
     - htpasswd-manage
