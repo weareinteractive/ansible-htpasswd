@@ -43,12 +43,18 @@ Here is a list of all the default variables for this role, which are also availa
 #   - name: myapp
 #     users:
 #       - { name: user1, password: secret1 }
-#       - { name: user1, password: secret2, crypt: [apr_md5_crypt | des_crypt | ldap_sha1 | plaintext] }
+#   - name: otherapp
+#     path: /foo/bar
+#     users:
+#       - { name: user2, password: secret2, crypt: ldap_sha1 }
 
 # list of entries
 htpasswd: []
 # path to auth files
 htpasswd_path: /etc/htpasswd
+# default crypt [apr_md5_crypt | des_crypt | ldap_sha1 | plaintext]
+htpasswd_crypt: apr_md5_crypt
+
 ```
 
 ## Example playbook
@@ -62,7 +68,11 @@ htpasswd_path: /etc/htpasswd
     htpasswd:
       - name: myapp
         users:
-        - { name: user, password: secret }
+          - { name: user1, password: secret1 }
+      - name: otherapp
+        path: /var/otherapp
+        users:
+          - { name: user2, password: secret2 }
 ```
 
 ## Testing

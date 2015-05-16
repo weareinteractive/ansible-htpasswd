@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- host: all
   sudo: yes
   roles:
     - franklinkim.htpasswd
@@ -8,5 +8,9 @@
     htpasswd:
       - name: myapp
         users:
-        - { name: user, password: secret }
+          - { name: user1, password: secret1 }
+      - name: otherapp
+        path: /var/otherapp
+        users:
+          - { name: user2, password: secret2 }
 
