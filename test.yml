@@ -1,6 +1,6 @@
 ---
 
-- host: all
+- hosts: all
   sudo: yes
   roles:
     - franklinkim.htpasswd
