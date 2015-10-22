@@ -6,9 +6,9 @@
     path: "{{ item.0.path | default(htpasswd_path ~ '/' ~ item.0.name) }}"
     crypt_scheme: "{{ item.1.crypt | default(htpasswd_crypt) }}"
     password: "{{ item.1.password }}"
-    owner: root
-    group: root
-    mode: "0644"
+    owner: "{{ htpasswd_owner }}"
+    group: "{{ htpasswd_group }}"
+    mode: "{{ htpasswd_mode }}"
   with_subelements:
     - htpasswd
     - users
