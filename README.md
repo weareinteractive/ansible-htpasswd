@@ -86,10 +86,11 @@ This is an example playbook:
         users:
           - { name: user1, password: secret1 }
       - name: otherapp
-        path: /var/otherapp
+        path: /usr/local/etc
         users:
           - { name: user2, password: secret2 }
-
+        mode: "0600"
+        group: staff
 
 ```
 
