@@ -3,7 +3,7 @@
 - name: Adding htpasswd files
   htpasswd:
     name: "{{ item.1.name }}"
-    path: "{{ item.0.path | default(htpasswd_path ~ '/' ~ item.0.name) }}"
+    path: "{{ item.0.path | default(htpasswd_path) ~ '/' ~ item.0.name }}"
     crypt_scheme: "{{ item.1.crypt | default(htpasswd_crypt) }}"
     owner: "{{ item.0.owner | default(htpasswd_owner) }}"
     group: "{{ item.0.group | default(htpasswd_group) }}"

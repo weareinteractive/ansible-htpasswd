@@ -10,7 +10,7 @@
         users:
           - { name: user1, password: secret1 }
       - name: otherapp
-        path: /usr/local/etc/otherapp
+        path: /usr/local/etc
         users:
           - { name: user2, password: secret2 }
         mode: "0600"
