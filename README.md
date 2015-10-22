@@ -54,6 +54,10 @@ htpasswd: []
 htpasswd_path: /etc/htpasswd
 # default crypt [apr_md5_crypt | des_crypt | ldap_sha1 | plaintext]
 htpasswd_crypt: apr_md5_crypt
+# list of package to install, python-passlib is a pre-requisite for htpasswd ansible module
+htpasswd_packages:
+  - python-passlib
+  - apache2-utils
 
 ```
 
