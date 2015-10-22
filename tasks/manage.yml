@@ -5,10 +5,10 @@
     name: "{{ item.1.name }}"
     path: "{{ item.0.path | default(htpasswd_path ~ '/' ~ item.0.name) }}"
     crypt_scheme: "{{ item.1.crypt | default(htpasswd_crypt) }}"
+    owner: "{{ item.0.owner | default(htpasswd_owner) }}"
+    group: "{{ item.0.group | default(htpasswd_group) }}"
+    mode: "{{ item.0.mode | default(htpasswd_mode) }}"
     password: "{{ item.1.password }}"
-    owner: "{{ htpasswd_owner }}"
-    group: "{{ htpasswd_group }}"
-    mode: "{{ htpasswd_mode }}"
   with_subelements:
     - htpasswd
     - users
