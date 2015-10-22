@@ -13,3 +13,4 @@
     owner: root
     group: root
     mode: "0755"
+  when: not((htpasswd_path is undefined) or (htpasswd_path is none) or (htpasswd_path|trim == ''))
