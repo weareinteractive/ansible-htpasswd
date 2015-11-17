@@ -12,3 +12,4 @@
   with_subelements:
     - htpasswd
     - users
+  no_log: yes
