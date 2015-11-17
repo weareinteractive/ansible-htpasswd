@@ -1,7 +1,6 @@
 ---
 
 - name: Adding htpasswd files
-  no_log: True
   htpasswd:
     name: "{{ item.1.name }}"
     path: "{{ item.0.path | default(htpasswd_path) ~ '/' ~ item.0.name }}"
@@ -13,3 +12,4 @@
   with_subelements:
     - htpasswd
     - users
+  no_log: yes
