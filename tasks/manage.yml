@@ -10,6 +10,6 @@
     mode: "{{ item.0.mode | default(htpasswd_mode) }}"
     password: "{{ item.1.password }}"
   with_subelements:
-    - htpasswd
+    - "{{ htpasswd }}"
     - users
   no_log: yes
