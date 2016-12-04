@@ -1,3 +1,13 @@
+<a name="1.5.0"></a>
+## 1.5.0 (2016-12-04)
+
+
+#### Features
+
+*   update for ansible 2 ([e1e9949d](https://github.com/weareinteractive/ansible-htpasswd/commit/e1e9949de3e5f6c472815bc85cab6f9fb0b2768f))
+
+
+
 <a name="1.4.0"></a>
 ## 1.4.0 (2015-11-17)
 
