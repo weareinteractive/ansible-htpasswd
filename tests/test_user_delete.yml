@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  roles:
+    - franklinkim.htpasswd
+  vars:
+    htpasswd_list_users: true
+    htpasswd:
+      - name: otherapp
+        path: /usr/local/etc
+        users_delete:
+          - user2
+        users:
+          - { name: user3, password: secret3 }
+        mode: "0600"
+        group: staff

@@ -11,3 +11,4 @@ pip install ansible==2.0.0.0
 
 echo 'running playbook'
 ansible-playbook -vvvv -i 'localhost,' -c local $(pwd)/tests/main.yml
+ansible-playbook -vvvv -i 'localhost,' -c local $(pwd)/tests/test_user_delete.yml
