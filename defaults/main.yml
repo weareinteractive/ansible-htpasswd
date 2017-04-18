@@ -25,3 +25,6 @@ htpasswd_mode: "0644"
 htpasswd_packages:
   - python-passlib
   - apache2-utils
+# list created and removed users after the action is done. Useful because no_log is enabled so
+# everything is masked and sometimes you want to know what changed
+htpasswd_list_users: false

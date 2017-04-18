@@ -1,5 +1,17 @@
 ---
 
+- name: Removing htpasswd entries
+  htpasswd:
+    name: "{{ item.1 }}"
+    path: "{{ item.0.path | default(htpasswd_path) ~ '/' ~ item.0.name }}"
+    state: absent
+  register: removed_users
+  with_subelements:
+    - "{{ htpasswd }}"
+    - users_delete
+    - skip_missing: true
+  no_log: yes
+
 - name: Adding htpasswd files
   htpasswd:
     name: "{{ item.1.name }}"
@@ -9,7 +21,16 @@
     group: "{{ item.0.group | default(htpasswd_group) }}"
     mode: "{{ item.0.mode | default(htpasswd_mode) }}"
     password: "{{ item.1.password }}"
+  register: added_users
   with_subelements:
     - "{{ htpasswd }}"
     - users
   no_log: yes
+
+- name: List removed users
+  debug: msg="{{ removed_users.results | selectattr('changed', 'equalto', True) | map(attribute='msg') | list }}"
+  when: htpasswd_list_users and (removed_users | changed)
+
+- name: List added users
+  debug: msg="{{ added_users.results | selectattr('changed', 'equalto', True) | map(attribute='msg') | list }}"
+  when: htpasswd_list_users and (added_users | changed)
