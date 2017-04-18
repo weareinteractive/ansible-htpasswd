@@ -32,7 +32,7 @@ $ git clone https://github.com/weareinteractive/ansible-htpasswd.git franklinkim
 
 ## Dependencies
 
-* Ansible >= 1.9
+* Ansible >= 2.0
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
