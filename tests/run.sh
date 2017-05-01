@@ -1,14 +1,17 @@
 #!/bin/bash
 
 # define variables
+ROLE_DIR=/role
 ROLE_NAME=franklinkim.htpasswd
 
-# create role symnlink
-ln -s $(pwd) /usr/share/ansible/roles/$ROLE_NAME
+# install dependencies
+# echo '* installing dependencies'
+# ansible-galaxy install franklinkim.openssl
 
-# update ansible to 2.0.0.0
-pip install ansible==2.0.0.0
+# create role symnlink
+ln -s $ROLE_DIR /etc/ansible/roles/$ROLE_NAME
 
 echo 'running playbook'
-ansible-playbook -vvvv -i 'localhost,' -c local $(pwd)/tests/main.yml
-ansible-playbook -vvvv -i 'localhost,' -c local $(pwd)/tests/test_user_delete.yml
+ansible-playbook --version
+ansible-playbook --syntax-check -i 'localhost,' -c local $ROLE_DIR/tests/main.yml
+ansible-playbook -vvvv -i 'localhost,' -c local $ROLE_DIR/tests/main.yml
