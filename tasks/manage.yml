@@ -9,7 +9,9 @@
     group: "{{ item.0.group | default(htpasswd_group) }}"
     mode: "{{ item.0.mode | default(htpasswd_mode) }}"
     password: "{{ item.1.password }}"
+    state: "{{ item.1.state | default(omit) }}"
+  register: added_users
   with_subelements:
     - "{{ htpasswd }}"
     - users
-  no_log: yes
+  no_log: "{{ htpasswd_no_log }}"

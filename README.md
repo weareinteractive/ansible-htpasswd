@@ -32,7 +32,7 @@ $ git clone https://github.com/weareinteractive/ansible-htpasswd.git franklinkim
 
 ## Dependencies
 
-* Ansible >= 1.9
+* Ansible >= 2.0
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
@@ -48,6 +48,13 @@ Here is a list of all the default variables for this role, which are also availa
 #     path: /foo/bar
 #     users:
 #       - { name: user2, password: secret2, crypt: ldap_sha1 }
+#   - name: anotherapp
+#     path: /var/www
+#     users_delete:
+#       - user1
+#     users:
+#       - { name: user3, password: secret3 }
+#     mode: "0640"
 
 # list of entries
 htpasswd: []
@@ -65,6 +72,9 @@ htpasswd_mode: "0644"
 htpasswd_packages:
   - python-passlib
   - apache2-utils
+# list created and removed users after the action is done. Useful because no_log is enabled so
+# everything is masked and sometimes you want to know what changed
+htpasswd_list_users: false
 
 ```
 
@@ -91,6 +101,13 @@ This is an example playbook:
           - { name: user2, password: secret2 }
         mode: "0600"
         group: staff
+      - name: anotherapp
+        path: /var/www
+        users_delete:
+          - user1
+        users:
+          - { name: user3, password: secret3 }
+        mode: "0640"
 
 ```
 
