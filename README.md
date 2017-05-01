@@ -33,6 +33,7 @@ $ git clone https://github.com/weareinteractive/ansible-htpasswd.git franklinkim
 ## Dependencies
 
 * Ansible >= 2.0
+
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
@@ -48,13 +49,7 @@ Here is a list of all the default variables for this role, which are also availa
 #     path: /foo/bar
 #     users:
 #       - { name: user2, password: secret2, crypt: ldap_sha1 }
-#   - name: anotherapp
-#     path: /var/www
-#     users_delete:
-#       - user1
-#     users:
-#       - { name: user3, password: secret3 }
-#     mode: "0640"
+#       - { name: user3, password: secret3, state: absent }
 
 # list of entries
 htpasswd: []
@@ -72,9 +67,8 @@ htpasswd_mode: "0644"
 htpasswd_packages:
   - python-passlib
   - apache2-utils
-# list created and removed users after the action is done. Useful because no_log is enabled so
-# everything is masked and sometimes you want to know what changed
-htpasswd_list_users: false
+# no log information by default to prevent showing passwords
+htpasswd_no_log: yes
 
 ```
 
@@ -87,7 +81,7 @@ This is an example playbook:
 ---
 
 - hosts: all
-  sudo: yes
+  become: yes
   roles:
     - franklinkim.htpasswd
   vars:
@@ -99,28 +93,42 @@ This is an example playbook:
         path: /usr/local/etc
         users:
           - { name: user2, password: secret2 }
+          - { name: user3, password: secret3 }
         mode: "0600"
         group: staff
-      - name: anotherapp
-        path: /var/www
-        users_delete:
-          - user1
+    htpasswd_no_log: no
+
+- hosts: all
+  become: yes
+  roles:
+    - franklinkim.htpasswd
+  vars:
+    htpasswd:
+      - name: myapp
         users:
+          - { name: user1, password: secret1 }
+      - name: otherapp
+        path: /usr/local/etc
+        users:
+          - { name: user2, password: secret2, state: absent }
           - { name: user3, password: secret3 }
-        mode: "0640"
+        mode: "0600"
+        group: staff
+    htpasswd_no_log: no
 
 ```
+
 
 ## Testing
 
 ```shell
 $ git clone https://github.com/weareinteractive/ansible-htpasswd.git
 $ cd ansible-htpasswd
-$ vagrant up
+$ make test
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
+In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
