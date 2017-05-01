@@ -1,3 +1,14 @@
+<a name="1.6.0"></a>
+## 1.6.0 (2017-04-18)
+
+
+#### Features
+
+*   add users removal from htpasswd ([bb929e7](https://github.com/weareinteractive/ansible-htpasswd/commit/bb929e71a89cd720d46240a9a3f873b57dcc34cf))
+*   change minimum ansible version to 2.0 ([a6bf093](https://github.com/weareinteractive/ansible-htpasswd/commit/a6bf0932aa771024736dec4c906e634a787d65d8))
+
+
+
 <a name="1.5.0"></a>
 ## 1.5.0 (2016-12-04)
 
