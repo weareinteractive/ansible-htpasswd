@@ -69,7 +69,9 @@ htpasswd_packages:
   - apache2-utils
 # no log information by default to prevent showing passwords
 htpasswd_no_log: yes
-
+# list created and removed users after the action is done. Useful because no_log is enabled so
+# everything is masked and sometimes you want to know what changed
+htpasswd_list_users: false
 ```
 
 
