@@ -1,3 +1,14 @@
+<a name="1.7.0"></a>
+## 1.7.0 (2018-04-24)
+
+
+#### Features
+
+*   add option to report added/deleted users ([161730ab](https://github.com/weareinteractive/ansible-htpasswd/commit/161730ab94a7c8190d4002f320b72e291003f668))
+*   update depricated include statements ([e3a55552](https://github.com/weareinteractive/ansible-htpasswd/commit/e3a5555280f372336356c8fd33a9132fab8dff72))
+
+
+
 <a name="1.6.0"></a>
 ## 1.6.0 (2017-05-01)
 
