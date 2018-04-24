@@ -16,6 +16,7 @@
     - users
   no_log: "{{ htpasswd_no_log }}"
 
-- name: Changes report
-  debug: msg="{{added_users.results | selectattr('changed', 'equalto', True) | map(attribute='msg') | list}}"
+- name: Reporting changes
+  debug:
+    msg: "{{added_users.results | selectattr('changed', 'equalto', True) | map(attribute='msg') | list}}"
   when: htpasswd_list_users
