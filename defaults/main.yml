@@ -24,7 +24,7 @@ htpasswd_group: root
 htpasswd_mode: "0644"
 # list of package to install, python-passlib is a pre-requisite for htpasswd ansible module
 htpasswd_packages:
-  - python-passlib
+  - python3-passlib
   - apache2-utils
 # no log information by default to prevent showing passwords
 htpasswd_no_log: yes
