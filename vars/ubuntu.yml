@@ -1,0 +1,8 @@
+# htpasswd packages
+htpasswd_packages:
+  - python3-pip
+  - python3-setuptools
+  - apache2-utils
+# htpasswd python packages
+htpasswd_pip_packages:
+  - passlib

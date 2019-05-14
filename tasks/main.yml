@@ -1,5 +1,12 @@
 ---
 
+- import_tasks: vars.yml
+  tags:
+    - web
+    - htpasswd
+    - vars
+    - htpasswd-vars
+
 - import_tasks: install.yml
   tags:
     - web
