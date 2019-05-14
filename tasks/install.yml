@@ -2,8 +2,11 @@
 
 - name: Installing packages
   package:
-    pkg: "{{ htpasswd_packages }}"
-    state: present
+    name: "{{ htpasswd_packages }}"
+
+- name: Installing python packages
+  pip:
+    name: "{{ htpasswd_pip_packages }}"
 
 - name: Creating htpasswd folder
   file:
