@@ -1,13 +1,17 @@
 ---
 
-galaxy_name: franklinkim.htpasswd
+galaxy_name: weareinteractive.htpasswd
 github_user: weareinteractive
 github_name: ansible-htpasswd
 badges: |
   [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-htpasswd.svg)](https://travis-ci.org/weareinteractive/ansible-htpasswd)
-  [![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.htpasswd-blue.svg)](https://galaxy.ansible.com/list#/roles/1372)
+  [![Galaxy](https://img.shields.io/badge/galaxy-weareinteractive.htpasswd-blue.svg)](https://galaxy.ansible.com/weareinteractive/htpasswd)
   [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-htpasswd.svg)](https://github.com/weareinteractive/ansible-htpasswd)
   [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-htpasswd.svg)](https://github.com/weareinteractive/ansible-htpasswd)
 description: |
   > * installs `htpasswd`
   > * manages `htpasswd` files
+
+  **Note:**
+
+  > Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.htpasswd` to `weareinteractive.htpasswd`!

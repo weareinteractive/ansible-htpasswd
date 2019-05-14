@@ -5,7 +5,7 @@ services:
   - docker
 env:
   global:
-    - role: franklinkim.htpasswd
+    - role: weareinteractive.htpasswd
   matrix:
     - distribution: Ubuntu
       distribution_version: "18.04"

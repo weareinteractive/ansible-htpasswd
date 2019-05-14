@@ -1,33 +1,37 @@
-# Ansible franklinkim.htpasswd role
+# Ansible weareinteractive.htpasswd role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-htpasswd.svg)](https://travis-ci.org/weareinteractive/ansible-htpasswd)
-[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.htpasswd-blue.svg)](https://galaxy.ansible.com/list#/roles/1372)
+[![Galaxy](https://img.shields.io/badge/galaxy-weareinteractive.htpasswd-blue.svg)](https://galaxy.ansible.com/weareinteractive/htpasswd)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-htpasswd.svg)](https://github.com/weareinteractive/ansible-htpasswd)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-htpasswd.svg)](https://github.com/weareinteractive/ansible-htpasswd)
 
-> `franklinkim.htpasswd` is an [Ansible](http://www.ansible.com) role which:
+> `weareinteractive.htpasswd` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs `htpasswd`
 > * manages `htpasswd` files
+
+**Note:**
+
+> Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.htpasswd` to `weareinteractive.htpasswd`!
 
 ## Installation
 
 Using `ansible-galaxy`:
 
 ```shell
-$ ansible-galaxy install franklinkim.htpasswd
+$ ansible-galaxy install weareinteractive.htpasswd
 ```
 
 Using `requirements.yml`:
 
 ```yaml
-- src: franklinkim.htpasswd
+- src: weareinteractive.htpasswd
 ```
 
 Using `git`:
 
 ```shell
-$ git clone https://github.com/weareinteractive/ansible-htpasswd.git franklinkim.htpasswd
+$ git clone https://github.com/weareinteractive/ansible-htpasswd.git weareinteractive.htpasswd
 ```
 
 ## Dependencies
@@ -63,10 +67,6 @@ htpasswd_owner: root
 htpasswd_group: root
 # auth files mode
 htpasswd_mode: "0644"
-# list of package to install, python-passlib is a pre-requisite for htpasswd ansible module
-htpasswd_packages:
-  - python-passlib
-  - apache2-utils
 # no log information by default to prevent showing passwords
 htpasswd_no_log: yes
 # list created and removed users after the action is done. Useful because no_log is enabled so
@@ -86,7 +86,7 @@ This is an example playbook:
 - hosts: all
   become: yes
   roles:
-    - franklinkim.htpasswd
+    - weareinteractive.htpasswd
   vars:
     htpasswd:
       - name: myapp
@@ -96,24 +96,6 @@ This is an example playbook:
         path: /usr/local/etc
         users:
           - { name: user2, password: secret2 }
-          - { name: user3, password: secret3 }
-        mode: "0600"
-        group: staff
-    htpasswd_no_log: no
-
-- hosts: all
-  become: yes
-  roles:
-    - franklinkim.htpasswd
-  vars:
-    htpasswd:
-      - name: myapp
-        users:
-          - { name: user1, password: secret1 }
-      - name: otherapp
-        path: /usr/local/etc
-        users:
-          - { name: user2, password: secret2, state: absent }
           - { name: user3, password: secret3 }
         mode: "0600"
         group: staff
