@@ -17,21 +17,3 @@
         mode: "0600"
         group: staff
     htpasswd_no_log: no
-
-- hosts: all
-  become: yes
-  roles:
-    - franklinkim.htpasswd
-  vars:
-    htpasswd:
-      - name: myapp
-        users:
-          - { name: user1, password: secret1 }
-      - name: otherapp
-        path: /usr/local/etc
-        users:
-          - { name: user2, password: secret2, state: absent }
-          - { name: user3, password: secret3 }
-        mode: "0600"
-        group: staff
-    htpasswd_no_log: no
