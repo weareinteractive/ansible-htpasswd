@@ -18,5 +18,5 @@
 
 - name: Reporting changes
   debug:
-    msg: "{{added_users.results | selectattr('changed', 'equalto', True) | map(attribute='msg') | list}}"
+    msg: "{{ added_users.results | selectattr('changed', 'equalto', True) | map(attribute='msg') | list }}"
   when: htpasswd_list_users
