@@ -1,10 +1,9 @@
 ---
 
 - name: Installing packages
-  apt:
-    pkg: "{{ item }}"
+  package:
+    pkg: "{{ htpasswd_packages }}"
     state: present
-  with_items: "{{ htpasswd_packages }}"
 
 - name: Creating htpasswd folder
   file:
