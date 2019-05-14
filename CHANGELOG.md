@@ -1,3 +1,21 @@
+<a name="1.8.0"></a>
+## 1.8.0 (2019-05-14)
+
+
+#### Bug Fixes
+
+*   fix length typo ([a75f7a24](https://github.com/weareinteractive/ansible-htpasswd/commit/a75f7a247397bcbaef0336dcabe5bd6c7138f14c))
+*   fix lint errors ([6ba04bfd](https://github.com/weareinteractive/ansible-htpasswd/commit/6ba04bfd6430e7b8aa252d0c6350b3f6bcc11efe))
+
+#### Features
+
+*   rename role ([ab639bc5](https://github.com/weareinteractive/ansible-htpasswd/commit/ab639bc53531f99653ea04ffbdd90a80e5d5d483))
+*   install python deps through pip ([5fbf405d](https://github.com/weareinteractive/ansible-htpasswd/commit/5fbf405d9a8009425c16cf6e3cd27db04914a09c))
+*   update passlib ([2a01b06b](https://github.com/weareinteractive/ansible-htpasswd/commit/2a01b06bd1f6c36551943d9aa26333b8208b9fa5))
+*   switch to package ([81461d84](https://github.com/weareinteractive/ansible-htpasswd/commit/81461d8410c37566fd96582d8719a9ab9b7ec3e1))
+
+
+
 <a name="1.7.0"></a>
 ## 1.7.0 (2018-04-24)
 
